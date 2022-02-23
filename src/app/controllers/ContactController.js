@@ -2,9 +2,24 @@ const ContactsRepository = require("../repositories/ContactsRepository");
 
 class ContactsController {
 	async index(req,res) {
-		const contacts = await ContactsRepository.findAll();
+		let contacts;
+		const {name, email} = req.query;
+		if(!name && !email) {
+			console.log('Aqui');
+			contacts = await ContactsRepository.findAll();
+			return res.json(contacts);
+		} else {
+			if(!email) {
+				console.log('Aqui !email');
+				contacts = await ContactsRepository.findByName(name);	
+				return res.json(contacts);
+			} else if (!name) {
+				console.log('Aqui !name');
+				contacts = await ContactsRepository.findByEmail(email);
+				return res.json(contacts);
+			}
 
-		res.json(contacts);
+		}
 	}
 	async show(req,res) {
 		const { id } = req.params;
@@ -16,7 +31,7 @@ class ContactsController {
 	}
 	async store(req,res) {
 		const {name, email, gender, birthday, phone, picture} = req.body;
-		const contactExists = await ContactsRepository.findByEmail(email)
+		const contactExists = await ContactsRepository.findPerfectMatchEmail(email);
 		if(contactExists) {
 			return res.status(400).json({ error: 'This e-mail is already in use'});
 		}

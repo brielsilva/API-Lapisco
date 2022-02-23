@@ -15,12 +15,17 @@ class ContactsRepository {
 		return rows;
 	}
 	async findByName(name) {
-		const rows = await db.query(`SELECT * FROM contacts WHERE name LIKE $1`,[name])
+		const rows = await db.query(`SELECT * FROM contacts WHERE name LIKE '%' || $1 || '%'`,[name]);
 		return rows;
 	}
 	async findByEmail(email) {
-		const rows = await db.query('SELECT * FROM contacts WHERE email LIKE $1',[email]);
+		const rows = await db.query(`SELECT * FROM contacts WHERE email LIKE '%' || $1 || '%'`,[email]);
 		return rows;
+	}
+	async findPerfectMatchEmail(email) {
+		const rows = await db.query('SELECT * FROM contacts WHERE email = $1',[email]);
+		console.log(rows);
+		return rows[0];
 	}
 	update(id) {}
 	delete(id) {}
