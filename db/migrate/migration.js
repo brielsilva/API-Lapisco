@@ -14,5 +14,3 @@ db.query(`CREATE TABLE IF NOT EXISTS contacts(
 	updatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );`);
 
-db.query(`INSERT INTO contacts(name,email,gender,phone,picture,birthday) VALUES('gabriel',"gabrielcostasilva100@gmail.com","M","85985892063","ALGUMAHOSTAQUI","2020-01-20");`);
-
