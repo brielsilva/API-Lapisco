@@ -6,6 +6,7 @@ const morgan = require('morgan');
 const routes = require('./routes');
 const path = require('path');
 require('dotenv').config();
+require('express-async-errors');
 
 const app = express();
 
@@ -18,6 +19,11 @@ app.use(express.static('images'));
 /* app.use('/images',express.static('images')); */
 
 app.use(routes);
+
+app.use((error,req,res,next) => {
+	console.log(error);
+	res.sendStatus(500);
+})
 
 
 app.listen(process.env.PORT, () => console.log('Servidor escutando na porta 3000'));
