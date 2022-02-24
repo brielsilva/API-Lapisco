@@ -32,9 +32,7 @@ class ContactsController {
 	}
 	async store(req,res) {
 		const {name, email, gender, birthday, phone} = req.body;
-		const picture = req.file.originalname;
 		const picturePath = req.file.location;
-		console.log(req.file);
 
 		if(!name && !email && !gender && !birthday && !phone && !picture) {
 			return res.status(400).json({ error: 'All fields are required'});
@@ -49,7 +47,7 @@ class ContactsController {
 		if(contactExists) {
 			return res.status(400).json({ error: 'This e-mail is already in use'});
 		}
-		const contact = await ContactsRepository.create({name,email,gender,birthday,phone,picture,picturePath});;
+		const contact = await ContactsRepository.create({name,email,gender,birthday,phone,picturePath});;
 
 		res.json(contact);
 	}

@@ -2,8 +2,8 @@ const db = require('../../../db/db');
 
 class ContactsRepository {
 
-	async create({name, email, phone, gender, picture, picturePath,birthday,}) {
-		const row = await db.query('INSERT INTO contacts(name,email,phone,gender,picture,birthday,picturePath) VALUES($1,$2,$3,$4,$5,$6,$7) RETURNING *',[name,email,phone,gender,picturePath,birthday,picturePath]);
+	async create({name, email, phone, gender, picturePath,birthday,}) {
+		const row = await db.query('INSERT INTO contacts(name,email,phone,gender,birthday,picturePath) VALUES($1,$2,$3,$4,$5,$6) RETURNING *',[name,email,phone,gender,birthday,picturePath]);
 
 		return row[0];
 	}

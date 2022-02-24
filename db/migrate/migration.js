@@ -10,7 +10,6 @@ module.exports = function createTable() {
     phone VARCHAR NOT NULL,
     gender CHAR(1) NOT NULL,
     birthday DATE NOT NULL,
-    picture VARCHAR NOT NULL,
     picturePath VARCHAR NOT NULL,
     createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP

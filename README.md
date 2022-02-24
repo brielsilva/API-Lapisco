@@ -29,10 +29,8 @@ DESAFIO:
   ● Telefone - phone
 	
   ● Data de nascimento - birthday
-	
-  ● Foto - picture
-	
-  ● Foto caminho - picturePath (adicionado por mim)
+		
+  ● Foto - picturePath
 	
   ● Data de criação do registro - createdAt
 	
