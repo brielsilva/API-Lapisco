@@ -12,8 +12,8 @@ services:
       POSTGRES_DB: contacts_app
       PG_DATA: /var/lib/postgresql/data/db-data/
       PORT: 3000
-      AWS_ACCESS_KEY_ID: AKIATD2VUQXJZMQUXCP2
-      AWS_SECRET_ACCESS_KEY: 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
+      AWS_ACCESS_KEY_ID: 
+      AWS_SECRET_ACCESS_KEY: 
       AWS_DEFAULT_REGION: sa-east-1
     command: yarn start
     ports:

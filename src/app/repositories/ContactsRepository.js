@@ -19,7 +19,7 @@ class ContactsRepository {
 	}
 
 	async findByName(name) {
-		const rows = await db.query(`SELECT * FROM contacts WHERE name LIKE '%' || $1 || '%'`,[name]);
+		const rows = await db.query(`SELECT * FROM contacts WHERE LOWER(name) LIKE '%' || $1 || '%'`,[name]);
 		return rows;
 	}
 

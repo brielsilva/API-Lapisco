@@ -20,7 +20,7 @@ class ContactsController {
 	}
 	async show(req,res) {
 		const { id } = req.params;
-
+    
 		const contact = await ContactsRepository.findById(id);
 
 		if(!contact) {
