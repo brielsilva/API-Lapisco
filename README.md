@@ -3,13 +3,18 @@ Primeiramente se deve rodar: docker-compose up --build
 Com isso, o app, banco de dados e o adminer para visualização do banco de dados estarão funcionando e pode-se começar a fazer chamadas para a API
 
 As rotas disponíveis são:
+
 	- /contacts GET - Retorna todos os registos
 		* Aceita querys:
 			- name
 			- email
+
 	- /contacts POST - Cria um registro
+
 	- /contacts/:id GET - Retorna um registro via id
+
 	- /contacts/:id PUT - Da update em um registro, alterando somente o nome e telefone
+
 	- /contacts/:id DELETE - Deleta um registro
 
 
