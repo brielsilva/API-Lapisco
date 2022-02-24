@@ -21,14 +21,22 @@ As rotas disponíveis são:
 DESAFIO:
 	Os dados a ser considerados são:
 	● Nome - name
-	● Email - email
-	● Sexo - gender
-	● Telefone - phone
-	● Data de nascimento - birthday
-	● Foto - picture
-	● Foto caminho - picturePath (adicionado por mim)
-	● Data de criação do registro - createdAt
-	● Data de atualização do registro - updatedAt
+	
+  ● Email - email
+	
+  ● Sexo - gender
+	
+  ● Telefone - phone
+	
+  ● Data de nascimento - birthday
+	
+  ● Foto - picture
+	
+  ● Foto caminho - picturePath (adicionado por mim)
+	
+  ● Data de criação do registro - createdAt
+	
+  ● Data de atualização do registro - updatedAt
 
 	API deverá ser capaz de:
 	● Realizar o cadastro de uma nova pessoa
