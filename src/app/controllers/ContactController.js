@@ -1,6 +1,5 @@
-const { response } = require("express");
 const ContactsRepository = require("../repositories/ContactsRepository");
-
+require('dotenv').config();
 class ContactsController {
 	async index(req,res) {
 		let contacts;
@@ -32,15 +31,25 @@ class ContactsController {
 
 	}
 	async store(req,res) {
-		const {name, email, gender, birthday, phone, picture} = req.body;
+		const {name, email, gender, birthday, phone} = req.body;
+		const picture = req.file.originalname;
+		const picturePath = req.file.location;
+		console.log(req.file);
+
+		if(!name && !email && !gender && !birthday && !phone && !picture) {
+			return res.status(400).json({ error: 'All fields are required'});
+		}
+
+		if(gender != 'M' && gender != 'F') {
+			return res.status(400).json({error: 'Gender must be either M or F'});
+		}
 
 		const contactExists = await ContactsRepository.findPerfectMatchEmail(email);
 
 		if(contactExists) {
 			return res.status(400).json({ error: 'This e-mail is already in use'});
 		}
-
-		const contact = await ContactsRepository.create({name,email,gender,birthday,phone,picture});;
+		const contact = await ContactsRepository.create({name,email,gender,birthday,phone,picture,picturePath});;
 
 		res.json(contact);
 	}

@@ -12,11 +12,18 @@
   "scripts": {
     "migrate": "node db/migrate/migration.js",
     "start": "node index.js",
-    "dev": "npx nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "lint": "eslint --fix src"
   },
   "dependencies": {
+    "aws-sdk": "^2.1080.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
+    "helmet": "^5.0.2",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.4",
+    "multer-s3": "^2.10.0",
     "pg": "^8.7.3"
   }
 }
