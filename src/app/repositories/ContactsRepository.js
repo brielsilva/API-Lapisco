@@ -3,7 +3,7 @@ const db = require('../../../db/db');
 class ContactsRepository {
 
 	async create({name, email, phone, gender, picture, picturePath,birthday,}) {
-		const row = await db.query('INSERT INTO contacts(name,email,phone,gender,picture,birthday,picturePath) VALUES($1,$2,$3,$4,$5,$6,$7) RETURNING *',[name,email,phone,gender,picture,birthday,picturePath]);
+		const row = await db.query('INSERT INTO contacts(name,email,phone,gender,picture,birthday,picturePath) VALUES($1,$2,$3,$4,$5,$6,$7) RETURNING *',[name,email,phone,gender,picturePath,birthday,picturePath]);
 
 		return row[0];
 	}
@@ -30,7 +30,6 @@ class ContactsRepository {
 
 	async findPerfectMatchEmail(email) {
 		const rows = await db.query('SELECT * FROM contacts WHERE email = $1',[email]);
-		console.log(rows);
 		return rows[0];
 	}
 
@@ -38,7 +37,6 @@ class ContactsRepository {
 		name, phone
 	}) {
 		const rows = await db.query(`UPDATE contacts SET name = $1,phone = $2, updatedAt = CURRENT_TIMESTAMP WHERE id = $3 RETURNING *`,[name,phone,id]);
-		console.log(rows);
 		return rows;
 	}
 

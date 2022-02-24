@@ -5,6 +5,8 @@ const cors = require('cors');
 const morgan = require('morgan');
 const routes = require('./routes');
 const path = require('path');
+const createTable = require('../db/migrate/migration');
+createTable();
 require('dotenv').config();
 require('express-async-errors');
 
@@ -14,7 +16,7 @@ app.use(urlencoded({extended: true}));
 app.use(express.json());
 app.use(helmet());
 app.use(cors());
-app.use(morgan('dev'));
+app.use(morgan('tiny'));
 app.use(express.static('images'));
 /* app.use('/images',express.static('images')); */
 

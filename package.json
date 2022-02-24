@@ -11,7 +11,7 @@
   },
   "scripts": {
     "migrate": "node db/migrate/migration.js",
-    "start": "node index.js",
+    "start": "node src/index.js",
     "dev": "nodemon src/index.js",
     "lint": "eslint --fix src"
   },

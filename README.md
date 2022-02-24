@@ -1,8 +1,6 @@
 Essa API foi feita com o framework Express com banco de dados postgres com o modulo pg e as querys feitas na mão.
-Primeiramente se deve rodar: docker-compose up
-Assim o banco de dados vai estar no ar
-Logo após, rode npm run migrate para gerar a table
-Com isso você pode usar npm run start para começar o server
+Primeiramente se deve rodar: docker-compose up --build
+Com isso, o app, banco de dados e o adminer para visualização do banco de dados estarão funcionando e pode-se começar a fazer chamadas para a API
 
 As rotas disponíveis são:
 	/contacts GET - Retorna todos os registos
